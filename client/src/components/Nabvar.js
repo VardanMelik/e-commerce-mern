@@ -1,7 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-//import Badge from '@mui/material/Badge';
-//import MailIcon from '@mui/icons-material/Mail';
+import Badge from '@mui/material/Badge';
+import MailIcon from '@mui/icons-material/Mail';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+
 
 function Nabvar() {
     return (
@@ -13,6 +16,7 @@ function Nabvar() {
                     </Language>
                     <SearchContainer>
                         <Input />
+                        <SearchOutlinedIcon style={{ color: "gray", fontSize: 16 }} />
                     </SearchContainer>
                 </Left>
 
@@ -28,8 +32,8 @@ function Nabvar() {
                         Sign In
                     </MenuItem>
                     <MenuItem>
-                        <Badge badgeContent={4} color="success">
-                            <MailIcon color="action" />
+                        <Badge badgeContent={4} color="primary">
+                            <ShoppingCartOutlinedIcon/>
                         </Badge>
                     </MenuItem>
                 </Right>
@@ -43,6 +47,7 @@ export default Nabvar
 const MenuItem = styled.div`
     font-size: 14px;
     cursor: pointer;
+    margin-left: 25px;
 `
 
 const Container = styled.div`
@@ -90,5 +95,8 @@ const Logo = styled.h1`
 
 const Right = styled.div`
     flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 `
 
