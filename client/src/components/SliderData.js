@@ -42,3 +42,31 @@ export const categories = [
         title: "Autumn SALE",
     }
 ]
+
+export const popularProducts = [
+    {
+        id: 1,
+        img: "https://img.shopperboard.com/22216061/29782676930715-1.jpg",
+    },
+    {
+        id: 2,
+        img: "https://img.shopperboard.com/22216061/29782677029019-3.jpg",
+    },
+    {
+        id: 3,
+        img: "https://img.shopperboard.com/22216061/29782676996251-4.jpg",
+    },
+    {
+        id: 4,
+        img: "https://img.shopperboard.com/22216061/29782676996251-4.jpg",
+    },
+    {
+        id: 5,
+        img: "https://img.shopperboard.com/22216061/29782676996251-4.jpg",
+    },
+    {
+        id: 6,
+        img: "https://img.shopperboard.com/22216061/29782676996251-4.jpg",
+    }
+
+]

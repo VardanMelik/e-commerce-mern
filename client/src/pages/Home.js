@@ -2,6 +2,8 @@ import React from 'react'
 import Announcement from '../components/Announcement'
 import Categories from '../components/Categories'
 import Nabvar from '../components/Nabvar'
+import Newsletter from '../components/Newsletter'
+import Products from '../components/Products'
 import Slide  from '../components/Slider'
 
 function Home() {
@@ -12,6 +14,8 @@ function Home() {
                 <Nabvar />
                 <Slide />
                 <Categories />
+                <Products/>
+                <Newsletter />
             </div>
         </div>
     )
