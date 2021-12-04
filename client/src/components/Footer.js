@@ -6,6 +6,7 @@ import PinterestIcon from '@mui/icons-material/Pinterest';
 import AddLocationIcon from '@mui/icons-material/AddLocation';
 import PhoneIcon from '@mui/icons-material/Phone';
 import MailIcon from '@mui/icons-material/Mail';
+import { mobile } from '../responsive'
 
 function Footer() {
     return (
@@ -72,6 +73,12 @@ export default Footer
 
 const Container = styled.div`
     display: flex;
+
+    ${mobile(
+        {
+            flexDirection: "column"
+        }
+    )}
 `
 const Left = styled.div`
     flex: 1;
@@ -82,10 +89,22 @@ const Left = styled.div`
 const Center = styled.div`
     flex: 1;
     padding: 20px;
+
+    ${mobile(
+        {
+            display: "none"
+        }
+    )}
 `
 const Right = styled.div`
     flex: 1;    
     padding: 20px;
+
+    ${mobile(
+        {
+            backgroundColor: "#eeefff"
+        }
+    )}
 `
 
 const Logo = styled.h1`

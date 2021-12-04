@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import ArrowRightOutlinedIcon from '@mui/icons-material/ArrowRightOutlined';
 import ArrowLeftOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
 import { sliderItems } from './SliderData';
+import { mobile } from '../responsive'
 
 function Slider() {
     const [slideIndex, setSlideIndex] = useState(0);
@@ -48,7 +49,12 @@ const Container = styled.div`
     display: flex;
     position: relative;
     overflow: hidden;
-    //background-color: red;
+
+    ${mobile(
+        {
+            display: "none"
+        }
+    )}
 `
 
 const Arrow = styled.div`
