@@ -8,8 +8,9 @@ import Cart from "./pages/Cart";
 function App() {
   return (
     <div>
+      <Login/>
       {/*<Register />*/}
-      <Cart/>
+      {/*<Cart/>*/}
     </div>
   );
 }
