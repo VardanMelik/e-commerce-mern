@@ -11,11 +11,17 @@ router.post('/register', async (req, res) => {
         email: req.body.email,
         password: CryptoJS.AES.encrypt(req.body.password, process.env.SECRET_KEY).toString()
     });
-    //console.log(password)
 
     try {
         const savedUser = await newUser.save();
-        res.status(201).json(savedUser);
+        res
+            .status(200)
+            .json({
+                'username': savedUser.username,
+                'email': savedUser.email,
+                'isAdmin': savedUser.isAdmin,
+                'createdAt': savedUser.createdAt
+            });
         
     } catch (error) {
         res.status(500).json(error);
