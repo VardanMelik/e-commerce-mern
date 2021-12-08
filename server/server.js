@@ -11,6 +11,10 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const userRoute = require('./routes/users')
 const authRoute = require('./routes/auth');
+const productRoute = require('./routes/product');
+const cartRoute = require('./routes/cart');
+const orderRoute = require('./routes/order')
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -28,6 +32,9 @@ app.get('/api/test', (req, res) => {
 
 app.use('/api/users', userRoute);
 app.use('/api/auth', authRoute)
+app.use('/api/products', productRoute)
+app.use('/api/cart', cartRoute)
+app.use('/api/orders', orderRoute)
 
 app.listen(PORT, () => {
     console.log(`Server is running on port: ${PORT}`)
