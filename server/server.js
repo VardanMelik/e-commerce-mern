@@ -14,8 +14,9 @@ const authRoute = require('./routes/auth');
 const productRoute = require('./routes/product');
 const cartRoute = require('./routes/cart');
 const orderRoute = require('./routes/order')
+const stripeRoute = require('./routes/stripe')
 
-
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -35,6 +36,7 @@ app.use('/api/auth', authRoute)
 app.use('/api/products', productRoute)
 app.use('/api/cart', cartRoute)
 app.use('/api/orders', orderRoute)
+app.use('/api/checkout', stripeRoute)
 
 app.listen(PORT, () => {
     console.log(`Server is running on port: ${PORT}`)
