@@ -29,17 +29,20 @@ export const categories = [
     {
         id: 1,
         img: "https://img.shopperboard.com/22216061/29782676930715-1.jpg",
-        title: "SUMMER SALE"
+        title: "SUMMER SALE",
+        category: "women"
     },
     {
         id: 2,
         img: "https://img.shopperboard.com/22216061/29782677029019-3.jpg",
         title: "Winter SALE",
+        category: "coat"
     },
     {
         id: 3,
         img: "https://img.shopperboard.com/22216061/29782676996251-4.jpg",
         title: "Autumn SALE",
+        category: "jeans"
     }
 ]
 
