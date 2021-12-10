@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import styled from 'styled-components'
 import Announcement from '../components/Announcement'
 import Nabvar from '../components/Nabvar'
@@ -6,7 +7,19 @@ import NewsLetter from '../components/Newsletter'
 import Footer from '../components/Footer'
 import { mobile } from '../responsive'
 
+import {
+  useLocation
+} from "react-router-dom";
+
 function ProductList() {
+    const location = useLocation();
+    const category = location.pathname.split("/")[2]
+    const [filter, setFilter] = useState({})
+
+    const handleFilter = () => {
+        
+    }
+
     return (
         <Container>
             <Announcement />
@@ -16,8 +29,10 @@ function ProductList() {
                 <Filter>
                     <FilterText>
                         Filter Products
-                        <Select>
-                            <Option disabled selected>
+                        <Select name="color" onChange={handleFilter}>
+                            <Option  
+                                disabled 
+                            >
                                 Color
                             </Option>
                             <Option>White</Option>
@@ -27,8 +42,8 @@ function ProductList() {
                             <Option>Yellow</Option>
                             <Option>Green</Option>
                         </Select>
-                        <Select>
-                            <Option disabled selected>
+                        <Select name="size" onChange={handleFilter}>
+                            <Option disabled>
                                 Size
                             </Option>
                             <Option>XS</Option>
