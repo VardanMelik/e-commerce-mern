@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 import Product from './Product'
-import { popularProducts } from './SliderData'
+import { categories, popularProducts } from './SliderData'
 
-function Products() {
+function Products({ category, filter, sort }) {
+    console.log(category, filter, sort)
+
+    
     return (
         <Container>
             {popularProducts.map( item => (
