@@ -1,9 +1,28 @@
+import { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import { Link } from 'react-router-dom';
 
 function Product({ item }) {
+
+    const location = useLocation();
+    const id = location.pathname.split("/")[2]
+    const [product, setProduct] = useState({})
+
+    useEffect( () => {
+        const getProduct = async () => {
+            try {
+
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+    }, [id])
+
     return (
         <Container>
             <Circle/>
@@ -13,7 +32,9 @@ function Product({ item }) {
                     <ShoppingCartOutlinedIcon/>
                 </Icon>
                 <Icon>
-                    <SearchOutlinedIcon/>
+                    <Link to={`/product/${item._id}`}>
+                        <SearchOutlinedIcon/>
+                    </Link>                
                 </Icon>
                 <Icon>
                     <FavoriteBorderOutlinedIcon/>

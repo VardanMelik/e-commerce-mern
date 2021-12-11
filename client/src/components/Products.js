@@ -6,7 +6,7 @@ import axios from 'axios'
 
 function Products({ category, filters, sort }) {
     const [products, setProducts] = useState([]);
-    const [filteredProducts, setFilterdProducts] = useState([])
+    const [filteredProducts, setFilteredProducts] = useState([])
 
     useEffect( () => {
         const getProducts = async () => {
@@ -15,7 +15,6 @@ function Products({ category, filters, sort }) {
                     ? `http://localhost:5000/api/products/findall?category=${category}` 
                     : `http://localhost:5000/api/products/findall`);
                 setProducts(response.data);
-                console.log(products);
             } catch (error) {
                 console.log(error)
             }
@@ -23,23 +22,45 @@ function Products({ category, filters, sort }) {
         getProducts();
     }, [category]);
 
-    useEffect(() => {
-        category &&
-        setFilterdProducts(
+    console.log( typeof(products))
+
+    useEffect( () => {
+
+        /*category &&
+        setFilteredProducts(
             products.filter((item) =>
               Object.entries(filters).every(([key, value]) =>
                 item[key].includes(value)
               )
             )
-          );
+          );*/
       }, [products, category, filters]);
+
+    useEffect( () => {
+        if ( sort === "newest" ) {
+            setFilteredProducts( prev => 
+                [...prev].sort( (a,b) => a.createdAt - b.createdAt)    
+            )
+        } else if (( sort === "asc")) {
+            setFilteredProducts( (prev) => 
+                [...prev].sort((a,b) => a.price - b.price)
+            )
+        } else {
+            setFilteredProducts( (prev) => 
+                [...prev].sort( (a,b) => b.price - a.price)
+            )
+        }
+    }, [sort])
 
     
     return (
         <Container>
-            {filteredProducts.map( item => (
-                <Product item={item} key={item.id}/>
-            ))}
+            { category 
+                ? filteredProducts.map( item => <Product item={item} key={item.id}/>) 
+                : '' /*products
+                    .slice(0,8)
+                    .map( (item) => <Product item={item} key={item.id} />)*/
+            }
         </Container>
     )
 }
